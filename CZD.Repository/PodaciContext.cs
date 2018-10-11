@@ -9,6 +9,11 @@ namespace CZD.Repository
 {
     public class PodaciContext : DbContext
     {
-        DbSet<Model.Podaci.Podaci> Podaci { get; set; }
+        public DbSet<Model.Podaci.Podaci> Podaci { get; set; }
+
+        public PodaciContext() : base("name=PodaciConnection")
+        {
+
+        }
     }
 }
