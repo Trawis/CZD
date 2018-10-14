@@ -48,11 +48,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\201810140941297_Initial.cs" />
+    <Compile Include="Migrations\201810140941297_Initial.Designer.cs">
+      <DependentUpon>201810140941297_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Repository.cs" />
+    <Compile Include="IRepository.cs" />
+    <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PodaciContext.cs" />
     <Compile Include="Podaci\IPodaciRepository.cs" />
     <Compile Include="Podaci\PodaciRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -63,6 +71,11 @@
       <Project>{dcdf0e8b-87ff-41cc-a1a5-d0436a9a344f}</Project>
       <Name>CZD.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201810140941297_Initial.resx">
+      <DependentUpon>201810140941297_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

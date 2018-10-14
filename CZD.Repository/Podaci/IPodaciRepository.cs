@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CZD.Repository.Podaci
 {
-    public interface IPodaciRepository
+    public interface IPodaciRepository : IRepository<Model.Podaci.Podaci>
     {
+        void InsertWithProcedure(Model.Podaci.Podaci podatak);
     }
 }

@@ -1,0 +1,56 @@
+﻿@model CZD.ViewModels.PodaciViewModel
+@{
+    ViewBag.Title = "Index";
+    int input = 0;
+}
+
+<h2>Podaci</h2>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        @using (Html.BeginForm("Index", "Podaci", FormMethod.Post, new { @class = "", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationMessage("Datoteka")
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-upload"></span> Učitaj datoteku</button>
+        }
+        @if (Model.Podaci != null)
+        {
+            <hr />
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Ime</th>
+                            <th>Prezime</th>
+                            <th>Grad</th>
+                            <th>Poštanski broj</th>
+                            <th>Telefon</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var row in Model.Podaci)
+                        {
+                            <tr class=@(Int32.TryParse(row.PostanskiBroj, out input) ? "" : "danger")>
+                                <td>@row.Ime</td>
+                                <td>@row.Prezime</td>
+                                <td>@row.Grad</td>
+                                <td>@row.PostanskiBroj</td>
+                                <td>@row.Telefon</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <hr />
+            using (Html.BeginForm("Spremi", "Podaci", FormMethod.Post, new { @class = "", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-save-file"></span> Spremi datoteku</button>
+            }
+        }
+    </div>
+</div>
+
