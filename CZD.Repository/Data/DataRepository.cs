@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CZD.Model;
 
-namespace CZD.Repository.Podaci
+namespace CZD.Repository
 {
-    public class PodaciRepository : Repository<Model.Podaci.Podaci>, IPodaciRepository
+	public class DataRepository : Repository<Data>, IDataRepository
     {
         private DbContext _dbContext;
 
-        public PodaciRepository(DbContext context) : base(context)
+        public DataRepository(DbContext context) : base(context)
         {
             _dbContext = context;
         }
 
-        public void InsertWithProcedure(Model.Podaci.Podaci podatak)
+        public void InsertWithProcedure(Data podatak)
         {
             var ime = new SqlParameter("@Ime", podatak.Ime);
             var prezime = new SqlParameter("@Prezime", podatak.Prezime);

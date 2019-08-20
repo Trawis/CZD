@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CZD.Infrastructure;
 
 namespace CZD.Repository
 {
-    public class Repository<T> : IRepository<T>
+	public class Repository<T> : IRepository<T>
       where T : class
     {
         protected DbContext _entities;

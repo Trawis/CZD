@@ -1,27 +1,25 @@
-﻿using CsvHelper;
-using CZD.Repository;
-using CZD.Repository.Podaci;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using CsvHelper;
+using CZD.Infrastructure;
+using CZD.Model;
 
-namespace CZD.Service.Podaci
+namespace CZD.Service
 {
-    public class PodaciService : IPodaciService
+	public class DataService : IDataService
     {
-        private readonly IPodaciRepository _podaciRepository;
+        private readonly IDataRepository _podaciRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public PodaciService(IPodaciRepository podaciRepository, IUnitOfWork unitOfWork)
+        public DataService(IDataRepository podaciRepository, IUnitOfWork unitOfWork)
         {
             _podaciRepository = podaciRepository;
             _unitOfWork = unitOfWork;
         }
 
-        public List<Model.Podaci.DTO.PodaciDTO> UcitajDatoteku(string path)
+        public List<DTO.DataDTO> LoadFile(string path)
         {
             StreamReader reader = new StreamReader(path, Encoding.Default);
             var config = new CsvHelper.Configuration.Configuration
@@ -32,18 +30,18 @@ namespace CZD.Service.Podaci
 
             using (CsvReader csvReader = new CsvReader(reader, config, true))
             {
-                return csvReader.GetRecords<Model.Podaci.DTO.PodaciDTO>().ToList();
+                return csvReader.GetRecords<DTO.DataDTO>().ToList();
             }
         }
 
-        public void SpremiDatoteku(List<Model.Podaci.DTO.PodaciDTO> podaciDTO)
+        public void SaveFile(List<DTO.DataDTO> podaciDTO)
         {
             foreach (var row in podaciDTO)
             {
                 var isValid = int.TryParse(row.PostanskiBroj, out int result);
                 if (isValid)
                 {
-                    _podaciRepository.InsertWithProcedure(new Model.Podaci.Podaci
+                    _podaciRepository.InsertWithProcedure(new Data
                     {
                         Ime = row.Ime,
                         Prezime = row.Prezime,

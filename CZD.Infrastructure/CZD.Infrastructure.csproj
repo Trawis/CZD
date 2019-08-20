@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E3EEA788-9346-4050-BCC2-E0EAB37C6311}</ProjectGuid>
+    <ProjectGuid>{22328597-4FFA-4ABE-847A-8C5FE080EB94}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CZD.Service</RootNamespace>
-    <AssemblyName>CZD.Service</AssemblyName>
+    <RootNamespace>CZD.Infrastructure</RootNamespace>
+    <AssemblyName>CZD.Infrastructure</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,40 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CsvHelper, Version=7.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
-      <HintPath>..\packages\CsvHelper.7.1.1\lib\net45\CsvHelper.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\DTO\DataDTO.cs" />
-    <Compile Include="Data\IDataService.cs" />
-    <Compile Include="Data\DataService.cs" />
+    <Compile Include="Domain\IRepository.cs" />
+    <Compile Include="Domain\IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CZD.Infrastructure\CZD.Infrastructure.csproj">
-      <Project>{22328597-4FFA-4ABE-847A-8C5FE080EB94}</Project>
-      <Name>CZD.Infrastructure</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CZD.Model\CZD.Model.csproj">
-      <Project>{dcdf0e8b-87ff-41cc-a1a5-d0436a9a344f}</Project>
-      <Name>CZD.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CZD.Repository\CZD.Repository.csproj">
-      <Project>{B259283E-13D2-4D88-94CB-93D0AB2C0557}</Project>
-      <Name>CZD.Repository</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

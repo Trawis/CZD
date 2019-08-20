@@ -15,15 +15,17 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace CZD.DependencyResolution {
-    using CZD.Repository;
-    using CZD.Repository.Podaci;
-    using CZD.Service.Podaci;
-    using StructureMap.Configuration.DSL;
-    using StructureMap.Graph;
-    using System.Data.Entity;
+namespace CZD.DependencyResolution
+{
+	using System.Data.Entity;
+	using CZD.Infrastructure;
+	using CZD.Model;
+	using CZD.Repository;
+	using CZD.Service;
+	using StructureMap.Configuration.DSL;
+	using StructureMap.Graph;
 
-    public class DefaultRegistry : Registry {
+	public class DefaultRegistry : Registry {
         #region Constructors and Destructors
 
         public DefaultRegistry() {
@@ -34,12 +36,12 @@ namespace CZD.DependencyResolution {
 					scan.With(new ControllerConvention());
                 });
 
-            For<DbContext>().Use<PodaciContext>();
+            For<DbContext>().Use<CZDContext>();
 
             For<IUnitOfWork>().Use<UnitOfWork>();
-            For<IPodaciRepository>().Use<PodaciRepository>();
+            For<IDataRepository>().Use<DataRepository>();
 
-            For<IPodaciService>().Use<PodaciService>();
+            For<IDataService>().Use<DataService>();
         }
 
         #endregion

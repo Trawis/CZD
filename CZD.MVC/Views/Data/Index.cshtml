@@ -1,4 +1,4 @@
-﻿@model CZD.ViewModels.PodaciViewModel
+﻿@model CZD.ViewModels.DataViewModel
 @{
     ViewBag.Title = "Index";
     int input = 0;
@@ -8,15 +8,15 @@
 <hr />
 <div class="row">
     <div class="col-md-6">
-        @using (Html.BeginForm("Index", "Podaci", FormMethod.Post, new { @class = "", role = "form" }))
+        @using (Html.BeginForm("Index", "Data", FormMethod.Post, new { @class = "", role = "form" }))
         {
             @Html.AntiForgeryToken()
-            @Html.ValidationMessage("Datoteka")
+            @Html.ValidationMessage("FileError")
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
             <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-upload"></span> Učitaj datoteku</button>
         }
-        @if (Model.Podaci != null)
+        @if (Model.Data != null)
         {
             <hr />
             <div class="table-responsive">
@@ -31,7 +31,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var row in Model.Podaci)
+                        @foreach (var row in Model.Data)
                         {
                             <tr class=@(Int32.TryParse(row.PostanskiBroj, out input) ? "" : "danger")>
                                 <td>@row.Ime</td>
@@ -45,7 +45,7 @@
                 </table>
             </div>
             <hr />
-            using (Html.BeginForm("Spremi", "Podaci", FormMethod.Post, new { @class = "", role = "form" }))
+            using (Html.BeginForm("Save", "Data", FormMethod.Post, new { @class = "", role = "form" }))
             {
                 @Html.AntiForgeryToken()
                 <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-save-file"></span> Spremi datoteku</button>

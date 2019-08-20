@@ -15,20 +15,21 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace CZD.DependencyResolution {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Web;
+namespace CZD.DependencyResolution
+{
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Web;
 
-    using Microsoft.Practices.ServiceLocation;
+	using Microsoft.Practices.ServiceLocation;
 
-    using StructureMap;
-	
-    /// <summary>
-    /// The structure map dependency scope.
-    /// </summary>
-    public class StructureMapDependencyScope : ServiceLocatorImplBase {
+	using StructureMap;
+
+	/// <summary>
+	/// The structure map dependency scope.
+	/// </summary>
+	public class StructureMapDependencyScope : ServiceLocatorImplBase {
         #region Constants and Fields
 
         private const string NestedContainerKey = "Nested.Container.Key";

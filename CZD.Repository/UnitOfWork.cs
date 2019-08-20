@@ -1,19 +1,12 @@
-﻿using CZD.Repository.Podaci;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CZD.Infrastructure;
 
 namespace CZD.Repository
 {
-    public class UnitOfWork : IUnitOfWork
+	public class UnitOfWork : IUnitOfWork
     {
         private DbContext _dbContext;
-
-        public IPodaciRepository PodaciRepository => 
-            new PodaciRepository(_dbContext);
 
         public UnitOfWork(DbContext context)
         {

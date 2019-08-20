@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CZD.Model.Podaci.DTO
+﻿namespace CZD.Service.DTO
 {
-    public class PodaciDTO
+	public class DataDTO
     {
         public string Ime { get; set; }
         public string Prezime { get; set; }

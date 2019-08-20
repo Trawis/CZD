@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CZD.Service", "CZD.Service\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CZD.Repository", "CZD.Repository\CZD.Repository.csproj", "{B259283E-13D2-4D88-94CB-93D0AB2C0557}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CZD.Infrastructure", "CZD.Infrastructure\CZD.Infrastructure.csproj", "{22328597-4FFA-4ABE-847A-8C5FE080EB94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B259283E-13D2-4D88-94CB-93D0AB2C0557}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B259283E-13D2-4D88-94CB-93D0AB2C0557}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B259283E-13D2-4D88-94CB-93D0AB2C0557}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22328597-4FFA-4ABE-847A-8C5FE080EB94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22328597-4FFA-4ABE-847A-8C5FE080EB94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22328597-4FFA-4ABE-847A-8C5FE080EB94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22328597-4FFA-4ABE-847A-8C5FE080EB94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

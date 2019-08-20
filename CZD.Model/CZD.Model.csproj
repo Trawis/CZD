@@ -41,10 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Podaci\DTO\PodaciDTO.cs" />
-    <Compile Include="Podaci\Podaci.cs" />
+    <Compile Include="Data\IDataRepository.cs" />
+    <Compile Include="Data\Data.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\CZD.Infrastructure\CZD.Infrastructure.csproj">
+      <Project>{22328597-4FFA-4ABE-847A-8C5FE080EB94}</Project>
+      <Name>CZD.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
